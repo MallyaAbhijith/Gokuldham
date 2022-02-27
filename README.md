@@ -17,7 +17,8 @@ Then open ur github
 8. Mention in commit what you hav changed etc...
 
 Optional :: 
-How to update local repo from remote --> https://stackoverflow.com/questions/1443210/updating-a-local-repository-with-changes-from-a-github-repository
+1.How to update local repo from remote --> https://stackoverflow.com/questions/1443210/updating-a-local-repository-with-changes-from-a-github-repository
+2.Branching nd Merging --> https://www.varonis.com/blog/git-branching#:~:text=To%20merge%20branches%20locally%2C%20use,to%20bring%20into%20this%20branch. 
 
 Basically we aim at making a repo so that all of our machines have same repo cloned.
 Like if gaurav adds a programs etc...even we should be able to contribute to it.
