@@ -1,0 +1,187 @@
+#include<stdio.h>
+#include<stdlib.h>
+int count=0;
+struct node
+{
+    int sem;                                             //TO CREATE THE STRUCTURE
+    char name[50],usn[11],branch[20],phno[11];
+    struct node *link;/* data */
+};
+typedef struct node *NODE;                                  //MAKING IT HAS DATA TYPE
+NODE first=NULL;//DECLARING THE FIRST HAS A VARIABLE
+NODE getnode()
+{
+    NODE x;
+    x=(NODE)malloc(sizeof(struct node));
+    return x;
+}
+NODE create()//FUNCTION TO CREATE THE NODE
+{
+    NODE temp;
+    temp=getnode();
+    printf("Enter the student deatails\n");
+    printf("\n");
+    printf("Enter the name \n ");
+    scanf("%s",temp->name);
+    printf("Enter the usn\n");
+    scanf("%s",temp->usn);
+    printf("Enter the branch\n");
+    scanf("%s",temp->branch);
+    printf("Enter the phone number\n");
+    scanf("%s",temp->phno);
+    printf("Enter the semester\n");
+    scanf("%d",&temp->sem);
+    count++;
+    temp->link=NULL;
+    return temp;
+}
+void display()//FUNCTION TO DISPLAY THE LIST
+{
+    NODE temp;
+    if(first==NULL)
+    {
+        printf("List is empty\n");
+        return;
+    }
+    else 
+    {
+        printf("Students details are:\n");
+        printf("USN\tNAME\tBRANCH\tSEM\tPHONE NUMBER\n");
+        temp=first;
+        while(temp!=NULL)
+        {
+            printf("%s\t%s\t%s\t%d\t%s\n",temp->usn,temp->name,temp->branch,temp->sem,temp->phno);
+            temp=temp->link;
+        }
+    }
+    printf("NO of nodes or students are %d",count);
+
+}
+void display_deleted(NODE temp)//FUNCTION TO DISPLAY THE DELETED NODE
+{
+    printf("the following students are deleted\n");
+     printf("USN\tNAME\nBRANCH\tSEM\tPHONE NUMBER\n");
+    printf("%s\t%s\t%s\t%d\t%s",temp->usn,temp->name,temp->branch,temp->sem,temp->phno);
+    count--;
+}
+void insert_front()//FUNCTION TO INSERT AT THE FRONT OF THE LIST
+{
+    NODE temp;
+    temp=create();
+    temp->link=first;
+    first=temp;
+}
+void insert_rear()//FUNCTION TO INSERT AT THE END OR REAR
+{
+    NODE temp,cur;
+    temp=create();
+    if(first==NULL)
+    {
+        first=temp;
+    }
+    else
+    {
+        cur=first;
+        while(cur->link!=NULL)
+        {
+            cur=cur->link;
+        }
+        cur->link=temp;
+
+
+    }
+}
+void delete_front()
+{
+    NODE cur;
+    if(first==NULL)
+    {
+        printf("List is empty\n");
+        return;
+    }
+    cur=first;
+    first=first->link;
+    display_deleted(cur);
+    free(cur);
+    cur->link=NULL;
+}
+void delete_rear()
+{
+    NODE prev,cur;
+    if(first==NULL)
+    {
+        printf("List is empty\n");
+        return;
+    }
+    else if(first->link==NULL)
+    {
+        display_deleted(first);
+        free(first);
+        first=NULL;
+        return;
+    }
+    else
+    {
+    prev=NULL;
+    cur=first;
+    while(cur->link!=NULL)
+    {
+        prev=cur;
+        cur=cur->link;
+    }
+    display_deleted(cur);
+    prev->link=NULL;
+    free(cur);
+    cur=NULL;
+    }
+}
+void main()
+{
+    int choice,n,i;
+    while(1)
+    {
+        choice=0;
+        printf("*--------MENU-------*\n");
+        printf("1.Create a Singly linked list using frot insertion\n");
+        printf("2.Display the linked list and Number of nodes\n");
+        printf("3.Insertion from front end\n");
+        printf("4.Insertion from rear end\n");
+        printf("5.Deletion from front end\n");
+        printf("6.Delettion from rear end \n");
+        printf("7.exit\n");
+        printf("Enter the choice\n");
+        scanf("%d",&choice);
+        switch (choice)
+        {
+            case 1:
+            printf("Enter the number of students\n");
+            scanf("%d",&n);
+            for(i=0;i<n;i++)
+            {
+                insert_front();
+            }
+            break;
+            case 2:
+            display();
+            break;
+            case 3:
+            insert_front();
+            break;
+            case 4:
+            insert_rear();
+            break;
+            case 5:
+            delete_front();
+            break;
+            case 6:
+            delete_rear();
+            break;
+            case 7:
+            exit(0);
+            default:
+            printf("Enter the valid choice\n");
+            break;
+        }
+        
+    }
+}
