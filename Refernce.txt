@@ -7,6 +7,11 @@ git branch --> List all branch
 git branch <name of new branch>
 git checkout <branch to switch>
 
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/<branch> master
+
+
 Note :: It is not possible to push directly from non host machines (ASUS)
 	to the main repo (PREMIO)
 
