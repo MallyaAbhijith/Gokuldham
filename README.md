@@ -3,6 +3,18 @@ This Repo belongs to Gokuldham Members
 
 Dear Members, 
 
+After Cloning the repo double click the log file.
+It acts as a common chat group for the repo.
+
+How to use :: Just open it. Automatically date and time is typed.
+              Type your message and save the log file.
+             Then commit the changes of repo and push
+
+
+
+
+
+
 In summary, if you want to contribute to a project, the simplest way is to:
 Find a project(in this case its Gokuldham) you want to contribute to
 
