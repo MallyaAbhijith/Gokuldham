@@ -1,4 +1,4 @@
-Design, Develop and Implement a menu driven Program in C for the following
+/*Design, Develop and Implement a menu driven Program in C for the following
 operations on
 Singly Linked List (SLL) of Student Data with the fields: USN, Name, Branch,
 Sem, PhNo.
@@ -7,11 +7,8 @@ b. Display the status of SLL and count the number of nodes in it
 c. Perform Insertion / Deletion at End of SLL
 d. Perform Insertion / Deletion at Front of SLL(Demonstration of stack)
 e. Exit
---------------------------------------------------------------------------------
--------------------------------------
---------------------------------------------------------------------------------
--------------------------------------
-//header file
+
+*/
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -34,8 +31,7 @@ x->link=NULL;
 return x;
 }
 
-//Function to read the information which has to be stored in data field of a
-node
+//Function to read the information which has to be stored in data field of a node
 void read()
 {
 temp=getnode();
@@ -90,14 +86,11 @@ printf("\nUSN\tNAME\tBRANCH\tPH NO\tSEM\n");
 while(temp->link!=NULL)
 {
 count++;
-printf("%s\t%s\t%s\t%s\t%d\n",temp->usn,temp->name,temp->branch,temp->phno,temp-
->sem);
+printf("%s\t%s\t%s\t%s\t%d\n",temp->usn,temp->name,temp->branch,temp->phno,temp->sem);
 temp=temp->link;
 }
 count++;
-printf("%s\t%s\t%s\t%s\t%d\n",temp->usn,temp->name,temp->branch,temp->phno,temp-
-
->sem);
+printf("%s\t%s\t%s\t%s\t%d\n",temp->usn,temp->name,temp->branch,temp->phno,temp->sem);
 printf("\n Student count:%d\n",count);
 }
 return;
