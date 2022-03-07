@@ -1,0 +1,114 @@
+#include<stdio.h>>
+#include<stdlib.h>
+void create();
+void display();
+void insert();
+void delete();
+int n,i,ele,pos,a[10];
+void main()
+{
+    int choice;
+    while(1)
+    {
+        printf("********MENU*********\n");
+        printf("1.Create\n2.Display\n3.Insert\n4.Delete\n");
+        printf("Enter the choice\n");
+        scanf("%d",&choice);
+        switch (choice)
+        {
+        case 1:
+                create();
+            break;
+            case 2:
+            display();
+            break;
+            case 3:
+            insert();
+            break;
+
+            case 4:
+            delete();
+            break;  
+        default:
+        printf("Invalid choice\n");
+            break;
+        }
+
+    }
+}
+    void create()
+    {
+        printf("Enter the number elements in the array\n");
+        scanf("%d",&n);
+        printf("Enter the elements\n");
+        for(i=0;i<n;i++)
+        {
+            scanf("%d",&a[i]);
+        }
+
+    }
+    void display()
+    {
+        if(n==0)
+        {
+            printf("Array is empty\n");
+            
+        }
+        else
+        {
+            printf("\nArray is:");
+            for ( i = 0; i <n; i++)
+            {
+               printf("%d\t",a[i]);
+            }
+            
+        }
+    }
+    void insert()
+    {
+        printf("Enter the element to be inserted\n");
+        scanf("%d",&ele);
+        printf("Enter the position to be inserted\n");
+        scanf("%d",&pos);
+        if(pos>=0&&pos<=n)
+        {
+            for(i=pos-1;i<n;i++)
+            {
+                a[i+1]=a[i];
+            }
+            n=n+1;
+            a[pos]=ele;
+            display();
+            
+        }
+        else
+         {
+             printf("Position is not valid\n");
+         }
+    }
+    void delete()
+    {
+        if(n==0)
+        {
+            printf("Array is empty\n");
+        }
+        else
+            {
+        printf("Enter the position to be deleted\n");
+        scanf("%d",&pos);
+        if(pos>=0&&pos<=n)
+        {
+            for(i=pos-1;i<n;i++)
+            {
+                a[i]=a[i+1];
+            }
+            n=n-1;
+            display();
+        }
+        else
+        {
+            printf("Invalid position\n");
+        }
+    }
+}
+    
