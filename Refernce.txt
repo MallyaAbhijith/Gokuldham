@@ -1,0 +1,36 @@
+ASUS ROG STRIX --> origin --> MallyaAbhijith/Gokuldham.git
+PREMIO V3 --> origin_copy -->AbhijithMallya/Gokuldham.git
+
+**IMP**Always pull first so that you getto know the changes which are made in the central repo.
+	Else when we push doesnt work smoothly.
+	Also after pulling u need to commit.
+
+	Pull --> commit --> do the work/changes -> Push
+**IMP** (Above mentioned is only for collaborators)
+
+git merge <branch name>
+git branch -d <branch to deleted>
+git branch --> List all branch
+git branch <name of new branch>
+git checkout <branch to switch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/<branch> master
+
+
+Note :: It is not possible to push directly from non host machines (ASUS)
+	to the main repo (PREMIO)
+
+To update the local repo with the original repo
+::> git pull <remote> <branch>
+Note :: remote can be of orignal repo even in non host machine
+	Also branch should be main not master
+	In local we use master...in github its main
+
+PULL REQUEST should be made from non host machines (or those who can push directly)
+
+Trial
+-----
+// hello 123
+// hi
