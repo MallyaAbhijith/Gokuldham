@@ -34,7 +34,7 @@ void insert_rear(int coef,int ex,int ey,int ez,NODE head)
 {
     NODE temp,cur;
     temp=createnode(coef,ex,ey,ez);
-    if(head->link==NULL)
+    if(head->link==head)
     {
         head->link=temp;
         
