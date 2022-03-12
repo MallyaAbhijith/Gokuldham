@@ -1,0 +1,110 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define MS 5
+int a[MS], flag, top = -1;
+void push()
+{
+    int n;
+    if (top == (MS - 1))
+    {
+        printf("Stack is overflow\n");
+    }
+    else
+    {
+        printf("Enter the number elements\n");
+        scanf("%d", &n);
+        a[++top] = n;
+    }
+}
+void pop()
+{
+    int n;
+    if (top == -1)
+    {
+        printf("Stack is underflow\n ");
+    }
+    else
+    {
+        n = a[top--];
+        printf("The poped element is %d", n);
+    }
+}
+void display()
+{
+    int i;
+    if (top == -1)
+    {
+        printf("Stack is underflow\n");
+    }
+    else
+    {
+        printf("The stack elements are\n");
+        for (i = top; i <= 0; i--)
+        {
+            printf("%d\t", a[i]);
+        }
+    }
+}
+void palindrome()
+{
+    int i, j;
+    if (top == -1)
+    {
+        printf("The stack is underflow\n");
+    }
+    else
+    {
+        for (i = 0, j = top; i <= ((j / 2) + 1); i++, j--)
+            
+        {
+            if (a[i] == a[j])
+            {
+                continue;
+            }
+            else
+            {
+                flag = 1;
+                break;
+            }
+        }
+        if (flag == 1)
+        {
+            printf("Not a plaindrome\n");
+            flag = 0;
+        }
+        else
+        {
+            printf("It is palindrome\n");
+        }
+    }
+}
+void main()
+{
+    int ch;
+    do
+    {
+        printf("-------MENU-------\n");
+        printf("1.push\n2.display\n3.pop\n4.palindrome\n5.exit\n");
+        printf("Enter the choice\n");
+        scanf("%d", &ch);
+        switch (ch)
+        {
+        case 1:
+            push();
+            break;
+        case 2:
+            display();
+            break;
+        case 3:
+            pop();
+            break;
+        case 4:
+            palindrome();
+            break;
+
+        default:
+            printf("Invalid choice\n");
+            break;
+        }
+    } while (ch >= 0 && ch <= 5);
+}

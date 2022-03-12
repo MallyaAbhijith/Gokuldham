@@ -1,0 +1,71 @@
+//GRAPH TRAVERSAL 
+#include<stdio.h>
+#include<stdlib.h>
+int n,visited[10],a[25][25],reach[10],q[20];
+void bfs(int v)
+{
+    int u,f=0,r=-1,i;
+    for(i=1;i<=n;i++)
+    {
+        visited[i]=0;
+        q[i]=0;
+    }
+    q[++r]=v;
+    visited[v]=1;
+    while(f<=r)
+    {
+        u=q[f++];
+        for(i=1;i<=n;i++)
+        {
+            if(a[u][i]&&!visited[i])
+            {
+                q[++r]=i;
+                visited[i]=1;
+                printf("->%d",i);
+            }
+        }
+    }
+}
+void dfs(int v)
+{
+    int i;
+    reach[v]=1;
+    for(i=1;i<=n;i++)
+    {
+        if(a[v][i]&&!reach[i])
+        {
+            printf("->%d",i);
+            dfs(i);
+        }
+    }
+    
+}
+void main()
+{
+    int i,j,v;
+    printf("Enter the number of vertices \n");
+    scanf("%d",&n);
+    printf("Enter the matrix\n");
+    for(i=1;i<=n;i++)
+    {
+        for(j=1;j<=n;j++)
+        {
+            scanf("%d",&a[i][j]);
+        }
+    }
+    printf("Enter the starting vertex\n");
+    scanf("%d",&v);
+    if(v<1&&v>n)
+    {
+        printf("Invalid vertex\n");
+    }
+    else{
+        printf("\nResult of breadth first search is\n");
+        printf("%d",v);
+        bfs(v);
+        printf("\nResult of depth first search is\n");
+        printf("%d",v);
+        dfs(v);
+    }
+
+}
